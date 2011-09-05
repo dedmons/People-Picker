@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PrePickViewController.h"
+
 
 @interface PeoplePickerViewController : UIViewController
+
+@property (retain) PrePickViewController *prePickViewController;
 
 @end
