@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7D87A3C14153E7800FC7DBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3B14153E7800FC7DBC /* UIKit.framework */; };
+		F7D87A3E14153E7800FC7DBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3D14153E7800FC7DBC /* Foundation.framework */; };
+		F7D87A4014153E7800FC7DBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3F14153E7800FC7DBC /* CoreGraphics.framework */; };
+		F7D87A4614153E7800FC7DBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F7D87A4414153E7800FC7DBC /* InfoPlist.strings */; };
+		F7D87A4814153E7800FC7DBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D87A4714153E7800FC7DBC /* main.m */; };
+		F7D87A4C14153E7800FC7DBC /* PeoplePickerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D87A4B14153E7800FC7DBC /* PeoplePickerAppDelegate.m */; };
+		F7D87A4F14153E7800FC7DBC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D87A4D14153E7800FC7DBC /* MainWindow.xib */; };
+		F7D87A5214153E7800FC7DBC /* PeoplePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D87A5114153E7800FC7DBC /* PeoplePickerViewController.m */; };
+		F7D87A5514153E7800FC7DBC /* PeoplePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D87A5314153E7800FC7DBC /* PeoplePickerViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F7D87A3714153E7800FC7DBC /* PeoplePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeoplePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D87A3B14153E7800FC7DBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F7D87A3D14153E7800FC7DBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F7D87A3F14153E7800FC7DBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F7D87A4314153E7800FC7DBC /* PeoplePicker-Info.plist */ = {isa = PBXFileReference; path = "PeoplePicker-Info.plist"; sourceTree = "<group>"; };
+		F7D87A4514153E7800FC7DBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7D87A4714153E7800FC7DBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F7D87A4914153E7800FC7DBC /* PeoplePicker-Prefix.pch */ = {isa = PBXFileReference; path = "PeoplePicker-Prefix.pch"; sourceTree = "<group>"; };
+		F7D87A4A14153E7800FC7DBC /* PeoplePickerAppDelegate.h */ = {isa = PBXFileReference; path = PeoplePickerAppDelegate.h; sourceTree = "<group>"; };
+		F7D87A4B14153E7800FC7DBC /* PeoplePickerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeoplePickerAppDelegate.m; sourceTree = "<group>"; };
+		F7D87A4E14153E7800FC7DBC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		F7D87A5014153E7800FC7DBC /* PeoplePickerViewController.h */ = {isa = PBXFileReference; path = PeoplePickerViewController.h; sourceTree = "<group>"; };
+		F7D87A5114153E7800FC7DBC /* PeoplePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeoplePickerViewController.m; sourceTree = "<group>"; };
+		F7D87A5414153E7800FC7DBC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PeoplePickerViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7D87A3414153E7800FC7DBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D87A3C14153E7800FC7DBC /* UIKit.framework in Frameworks */,
+				F7D87A3E14153E7800FC7DBC /* Foundation.framework in Frameworks */,
+				F7D87A4014153E7800FC7DBC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7D87A2C14153E7800FC7DBC = {
+			isa = PBXGroup;
+			children = (
+				F7D87A4114153E7800FC7DBC /* PeoplePicker */,
+				F7D87A3A14153E7800FC7DBC /* Frameworks */,
+				F7D87A3814153E7800FC7DBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7D87A3814153E7800FC7DBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7D87A3714153E7800FC7DBC /* PeoplePicker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7D87A3A14153E7800FC7DBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7D87A3B14153E7800FC7DBC /* UIKit.framework */,
+				F7D87A3D14153E7800FC7DBC /* Foundation.framework */,
+				F7D87A3F14153E7800FC7DBC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7D87A4114153E7800FC7DBC /* PeoplePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F7D87A4A14153E7800FC7DBC /* PeoplePickerAppDelegate.h */,
+				F7D87A4B14153E7800FC7DBC /* PeoplePickerAppDelegate.m */,
+				F7D87A4D14153E7800FC7DBC /* MainWindow.xib */,
+				F7D87A5014153E7800FC7DBC /* PeoplePickerViewController.h */,
+				F7D87A5114153E7800FC7DBC /* PeoplePickerViewController.m */,
+				F7D87A5314153E7800FC7DBC /* PeoplePickerViewController.xib */,
+				F7D87A4214153E7800FC7DBC /* Supporting Files */,
+			);
+			path = PeoplePicker;
+			sourceTree = "<group>";
+		};
+		F7D87A4214153E7800FC7DBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7D87A4314153E7800FC7DBC /* PeoplePicker-Info.plist */,
+				F7D87A4414153E7800FC7DBC /* InfoPlist.strings */,
+				F7D87A4714153E7800FC7DBC /* main.m */,
+				F7D87A4914153E7800FC7DBC /* PeoplePicker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7D87A3614153E7800FC7DBC /* PeoplePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7D87A5814153E7800FC7DBC /* Build configuration list for PBXNativeTarget "PeoplePicker" */;
+			buildPhases = (
+				F7D87A3314153E7800FC7DBC /* Sources */,
+				F7D87A3414153E7800FC7DBC /* Frameworks */,
+				F7D87A3514153E7800FC7DBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PeoplePicker;
+			productName = PeoplePicker;
+			productReference = F7D87A3714153E7800FC7DBC /* PeoplePicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7D87A2E14153E7800FC7DBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Clemson;
+			};
+			buildConfigurationList = F7D87A3114153E7800FC7DBC /* Build configuration list for PBXProject "PeoplePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F7D87A2C14153E7800FC7DBC;
+			productRefGroup = F7D87A3814153E7800FC7DBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7D87A3614153E7800FC7DBC /* PeoplePicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7D87A3514153E7800FC7DBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D87A4614153E7800FC7DBC /* InfoPlist.strings in Resources */,
+				F7D87A4F14153E7800FC7DBC /* MainWindow.xib in Resources */,
+				F7D87A5514153E7800FC7DBC /* PeoplePickerViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7D87A3314153E7800FC7DBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D87A4814153E7800FC7DBC /* main.m in Sources */,
+				F7D87A4C14153E7800FC7DBC /* PeoplePickerAppDelegate.m in Sources */,
+				F7D87A5214153E7800FC7DBC /* PeoplePickerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7D87A4414153E7800FC7DBC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7D87A4514153E7800FC7DBC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F7D87A4D14153E7800FC7DBC /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7D87A4E14153E7800FC7DBC /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		F7D87A5314153E7800FC7DBC /* PeoplePickerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7D87A5414153E7800FC7DBC /* en */,
+			);
+			name = PeoplePickerViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7D87A5614153E7800FC7DBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F7D87A5714153E7800FC7DBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7D87A5914153E7800FC7DBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PeoplePicker/PeoplePicker-Prefix.pch";
+				INFOPLIST_FILE = "PeoplePicker/PeoplePicker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F7D87A5A14153E7800FC7DBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PeoplePicker/PeoplePicker-Prefix.pch";
+				INFOPLIST_FILE = "PeoplePicker/PeoplePicker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7D87A3114153E7800FC7DBC /* Build configuration list for PBXProject "PeoplePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D87A5614153E7800FC7DBC /* Debug */,
+				F7D87A5714153E7800FC7DBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7D87A5814153E7800FC7DBC /* Build configuration list for PBXNativeTarget "PeoplePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7D87A5914153E7800FC7DBC /* Debug */,
+				F7D87A5A14153E7800FC7DBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7D87A2E14153E7800FC7DBC /* Project object */;
+}
