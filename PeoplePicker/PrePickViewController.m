@@ -3,7 +3,7 @@
 //  PeoplePicker
 //
 //  Created by Douglas Edmonson on 9/5/11.
-//  Copyright 2011 Clemson. All rights reserved.
+//  Copyright 2011 Douglas Edmonson. All rights reserved.
 //
 
 #import "PrePickViewController.h"
@@ -14,25 +14,59 @@
 
 
 -(IBAction)makeList:(id)sender{
-    if (!peopleList) {
-        int cap = [[sender stringValue] intValue];
-        self.peopleList = [NSMutableArray arrayWithCapacity:cap];
-        [self.makeListButton setEnabled:NO];
+    NSNumberFormatter *tmp = [[NSNumberFormatter alloc] init];
+    if([[self.numPeople text] intValue] == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Really??"
+                                                        message:@"Do you really want to pick from no one?" 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"Nope" 
+                                              otherButtonTitles:@"Sure", nil];
+        [alert show];
+        [alert release];
+    } else {
+        [self.numPeople resignFirstResponder];
+        if (!peopleList) {
+            int cap = [[self.numPeople text] intValue];
+            self.peopleList = [[PeopleHolder alloc] initWithCap:cap];
+        }
         [self.restartButton setEnabled:YES];
         [self.addButton setEnabled:YES];
+        [self.personToAdd setEnabled:YES];
     }
+    [tmp release];
 }
 
 -(IBAction)addPerson:(id)sender{
-    
+    if ([[self.personToAdd text] length] > 0) {
+        if ([self.peopleList countOfPeople] < [[self.numPeople text] intValue]) {
+            [self.startButton setEnabled:YES];
+            [self.peopleList addPerson:[self.personToAdd text]];
+            [self.personToAdd setText:@""];
+            NSLog(@"Size of Array: %d",[self.peopleList countOfPeople]);
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"To Many..." 
+                                                            message:@"You Have Reached The Ammount Of People You Specified." 
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK" 
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What?" 
+                                                        message:@"A Name Cannot Be Blank!" 
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
 }
 
--(IBAction)startPicking:(id)sender{
-    
-}
-   
--(IBAction)restart:(id)sender{
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [theTextField resignFirstResponder];
+    return YES;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
