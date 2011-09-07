@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F74BFB5C14164AFD0060F436 /* PickingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74BFB5B14164AFD0060F436 /* PickingView.xib */; };
+		F74BFB6014164FD60060F436 /* PickingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74BFB5F14164FD60060F436 /* PickingViewController.m */; };
 		F7D87A3C14153E7800FC7DBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3B14153E7800FC7DBC /* UIKit.framework */; };
 		F7D87A3E14153E7800FC7DBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3D14153E7800FC7DBC /* Foundation.framework */; };
 		F7D87A4014153E7800FC7DBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3F14153E7800FC7DBC /* CoreGraphics.framework */; };
@@ -22,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F74BFB5B14164AFD0060F436 /* PickingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickingView.xib; sourceTree = "<group>"; };
+		F74BFB5E14164FD60060F436 /* PickingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickingViewController.h; sourceTree = "<group>"; };
+		F74BFB5F14164FD60060F436 /* PickingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickingViewController.m; sourceTree = "<group>"; };
 		F7D87A3714153E7800FC7DBC /* PeoplePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeoplePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7D87A3B14153E7800FC7DBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7D87A3D14153E7800FC7DBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,11 +98,14 @@
 				F7D87A5114153E7800FC7DBC /* PeoplePickerViewController.m */,
 				F7D87A93141546BA00FC7DBC /* PrePickViewController.h */,
 				F7D87A94141546BA00FC7DBC /* PrePickViewController.m */,
+				F74BFB5E14164FD60060F436 /* PickingViewController.h */,
+				F74BFB5F14164FD60060F436 /* PickingViewController.m */,
 				F7D87A5B14153EC100FC7DBC /* PeopleHolder.h */,
 				F7D87A5C14153EC100FC7DBC /* PeopleHolder.m */,
 				F7D87A4D14153E7800FC7DBC /* MainWindow.xib */,
 				F7D87A5314153E7800FC7DBC /* PeoplePickerViewController.xib */,
 				F7D87A8D1415448500FC7DBC /* PrePickView.xib */,
+				F74BFB5B14164AFD0060F436 /* PickingView.xib */,
 				F7D87A4214153E7800FC7DBC /* Supporting Files */,
 			);
 			path = PeoplePicker;
@@ -168,6 +176,7 @@
 				F7D87A4F14153E7800FC7DBC /* MainWindow.xib in Resources */,
 				F7D87A5514153E7800FC7DBC /* PeoplePickerViewController.xib in Resources */,
 				F7D87A8E1415448500FC7DBC /* PrePickView.xib in Resources */,
+				F74BFB5C14164AFD0060F436 /* PickingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +192,7 @@
 				F7D87A5214153E7800FC7DBC /* PeoplePickerViewController.m in Sources */,
 				F7D87A5D14153EC100FC7DBC /* PeopleHolder.m in Sources */,
 				F7D87A95141546BA00FC7DBC /* PrePickViewController.m in Sources */,
+				F74BFB6014164FD60060F436 /* PickingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
