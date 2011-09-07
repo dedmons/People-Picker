@@ -17,7 +17,16 @@
 }
 
 -(NSString *)randomPerson{
-    return @"test";
+    NSString *tmp;
+    if ([people count] > 0) {
+        NSNumber *rand = [NSNumber numberWithInt:(arc4random() % [people count])];
+        tmp = [NSString stringWithString:[self.people objectAtIndex:[rand intValue]]];
+        [self.people removeObjectAtIndex:[rand intValue]];
+    } else {
+        tmp = @"-1";
+    }
+    
+    return tmp;
 }
 
 -(void)addPerson:(NSString *)newGuy{

@@ -51,6 +51,10 @@
                                                   otherButtonTitles:nil];
             [alert show];
             [alert release];
+            [self.personToAdd resignFirstResponder];
+            [self.personToAdd setText:@""];
+            [self.personToAdd setEnabled:NO];
+            [self.addButton setEnabled:NO];
         }
         
     } else {
@@ -62,6 +66,10 @@
         [alert show];
         [alert release];
     }
+}
+
+-(IBAction)printPeople:(id)sender{
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {

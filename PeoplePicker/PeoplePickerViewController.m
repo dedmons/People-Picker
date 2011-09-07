@@ -10,7 +10,7 @@
 
 @implementation PeoplePickerViewController
 
-@synthesize prePickViewController;
+@synthesize prePickViewController,pickingViewController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -21,7 +21,46 @@
 }
 
 -(IBAction)startPicking:(id)sender{
-    NSLog(@"picking started");
+    if (!pickingViewController) {
+        PickingViewController *pVC = [[PickingViewController alloc] initWithNibName:@"PickingView" 
+                                                                             bundle:nil];
+        self.pickingViewController = pVC;
+    }
+    
+    self.pickingViewController.peopleList = self.prePickViewController.peopleList;
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:1.25];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromRight
+                           forView:self.view cache:YES];
+    
+    [self.prePickViewController.view removeFromSuperview];
+    [self.view insertSubview:self.pickingViewController.view atIndex:0];
+    
+    [UIView commitAnimations];
+}
+
+-(IBAction)reset:(id)sender{
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:1.25];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    PrePickViewController *pPVC = [[PrePickViewController alloc] 
+                                   initWithNibName:@"PrePickView" bundle:nil];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromRight
+                           forView:self.view cache:YES];
+    
+    [[self.view.subviews objectAtIndex:0] removeFromSuperview];
+    self.prePickViewController = pPVC;
+    [self.view insertSubview:pPVC.view atIndex:0];
+    
+    [UIView commitAnimations];
+    
+    [pPVC release];
 }
 
 #pragma mark - View lifecycle
@@ -44,6 +83,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.prePickViewController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

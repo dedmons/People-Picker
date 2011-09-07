@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "PrePickViewController.h"
+#import "PickingViewController.h"
 
 
 @interface PeoplePickerViewController : UIViewController
 
 @property (retain) PrePickViewController *prePickViewController;
+@property (retain) PickingViewController *pickingViewController;
 
 -(IBAction)startPicking:(id)sender;
+-(IBAction)reset:(id)sender;
 
 @end
