@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PeopleHolder.h"
 
-@interface PrePickViewController : UIViewController
+@interface PrePickViewController : UIViewController <UIAlertViewDelegate>
 
 @property (retain) PeopleHolder *peopleList;
 @property (retain) IBOutlet UIButton *makeListButton;
@@ -18,9 +18,14 @@
 @property (retain) IBOutlet UIButton *restartButton;
 @property (retain) IBOutlet UITextField *numPeople;
 @property (retain) IBOutlet UITextField *personToAdd;
+@property (retain) IBOutlet UIImageView *addLight;
+@property (retain) IBOutlet UIImageView *startLight;
+@property (retain) IBOutlet UIImage *green;
+@property (retain) IBOutlet UIImage *red;
 
 -(IBAction)makeList:(id)sender;
 -(IBAction)addPerson:(id)sender;
+-(IBAction)hideTroll:(id)sender;
 //-(IBAction)startPicking:(id)sender;
 //-(IBAction)restart:(id)sender;
 

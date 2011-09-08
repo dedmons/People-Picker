@@ -10,17 +10,18 @@
 
 @implementation PrePickViewController
 
-@synthesize peopleList,restartButton,makeListButton,addButton,startButton,numPeople,personToAdd;
+@synthesize peopleList,restartButton,makeListButton,addButton,
+            startButton,numPeople,personToAdd,addLight,startLight,green,red;
 
 
 -(IBAction)makeList:(id)sender{
     NSNumberFormatter *tmp = [[NSNumberFormatter alloc] init];
     if([[self.numPeople text] intValue] == 0){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Really??"
-                                                        message:@"Do you really want to pick from no one?" 
-                                                       delegate:nil 
-                                              cancelButtonTitle:@"Nope" 
-                                              otherButtonTitles:@"Sure", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You Cant Do That"
+                                                        message:@"You Must Set The Pool Size" 
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil];
         [alert show];
         [alert release];
     } else {
@@ -32,6 +33,7 @@
         [self.restartButton setEnabled:YES];
         [self.addButton setEnabled:YES];
         [self.personToAdd setEnabled:YES];
+        [self.addLight setImage:green];
     }
     [tmp release];
 }
@@ -40,9 +42,14 @@
     if ([[self.personToAdd text] length] > 0) {
         if ([self.peopleList countOfPeople] < [[self.numPeople text] intValue]) {
             [self.startButton setEnabled:YES];
+            [self.startLight setImage:green];
             [self.peopleList addPerson:[self.personToAdd text]];
             [self.personToAdd setText:@""];
             NSLog(@"Size of Array: %d",[self.peopleList countOfPeople]);
+            
+            if([self.peopleList countOfPeople] == [[self.numPeople text] intValue]){
+                [self.personToAdd resignFirstResponder];
+            } 
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"To Many..." 
                                                             message:@"You Have Reached The Ammount Of People You Specified." 
@@ -55,6 +62,7 @@
             [self.personToAdd setText:@""];
             [self.personToAdd setEnabled:NO];
             [self.addButton setEnabled:NO];
+            [self.addLight setImage:red];
         }
         
     } else {
@@ -72,6 +80,26 @@
     
 }
 
+-(IBAction)hideTroll:(id)sender{
+    
+}
+
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
+    for (UIView* view in self.view.subviews) {
+        if ([view isKindOfClass:[UITextField class]])
+            [view resignFirstResponder];
+    }
+}
+
+#pragma mark - UIAlertViewDeligate Methods
+/*
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        NSLog(@"%@",[alertView buttonTitleAtIndex:buttonIndex]);
+    }
+}
+*/
+
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [theTextField resignFirstResponder];
     return YES;
@@ -81,7 +109,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        green = [[UIImage alloc] initWithContentsOfFile:
+         [[NSBundle mainBundle] pathForResource:@"green.png" ofType:@""]]; 
+        red = [[UIImage alloc] initWithContentsOfFile:
+                 [[NSBundle mainBundle] pathForResource:@"red.png" ofType:@""]]; 
     }
     return self;
 }
@@ -96,20 +127,14 @@
 
 #pragma mark - View lifecycle
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [self.numPeople becomeFirstResponder];
     [super viewDidLoad];
 }
-*/
+
 
 - (void)viewDidUnload
 {

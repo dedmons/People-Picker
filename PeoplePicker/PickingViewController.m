@@ -10,50 +10,87 @@
 
 @implementation PickingViewController
 
-@synthesize pickButton,resetButton,peopleList,numToPick;
+@synthesize pickButton,resetButton,peopleList,numToPick,peopleLeft,green,red;
 
 -(IBAction)pickPeople:(id)sender{
-//    if ([self.peopleList countOfPeople] > 0) {
-//        NSLog(@"List Size: %d",[self.peopleList countOfPeople]);
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your Person Is..."
-//                                                        message:[self.peopleList randomPerson]
-//                                                       delegate:nil 
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//        [alert release];
-//    }
-    NSString *person = [self.peopleList randomPerson];
-    if ([person isEqualToString:@"-1"]) {
-        
-        NSLog(@"Empty Array");
+    NSInteger numOfGroup = [[self.numToPick text] integerValue];
+    NSString *result = @"";
+    NSString *nextResult = @"";
+    
+    BOOL emptyList = NO;
+    
+    for (int i = 0; i < numOfGroup && !emptyList; i++) {
+        NSLog(@"Picking personn %d out of %d",i,numOfGroup);
+        nextResult = [self.peopleList randomPerson];
+        if ([nextResult isEqualToString:@"-1"]) {
+            NSLog(@"no more people");
+            [self.pickButton setImage:red forState:UIControlStateNormal];
+            emptyList = YES;
+        } else {
+            result = [result stringByAppendingFormat:@"\n%@",nextResult];
+        }
+    }
+    [self updateNumPeople];
+    
+    if ([self.peopleList countOfPeople] == 0) {
+        [self.pickButton setImage:red forState:UIControlStateNormal];
+    }
+    
+    if (numOfGroup == 1 && ![result isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your Person Is..."
-                                                        message:@"Nobody! The List Is Empty"
+                                                        message:result 
                                                        delegate:nil 
-                                              cancelButtonTitle:@"OK :("
+                                              cancelButtonTitle:@"OK" 
                                               otherButtonTitles:nil];
         [alert show];
         [alert release];
-        
-        [self.pickButton setEnabled:NO];
-        
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your Person Is..."
-                                                        message:person
+    } else if (numOfGroup > 1 && ![result isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The Group Is..."
+                                                        message:result 
                                                        delegate:nil 
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"There Is No One Left"
+                                                        message:@"Plese press the reset button and enter a new group" 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"OK" 
                                               otherButtonTitles:nil];
         [alert show];
         [alert release];
     }
-    NSLog(@"%@",person);
+    
+    NSLog(@"Group: %@",result);
+}
+
+-(void)updateNumPeople{
+    [self.peopleLeft setText:[NSString stringWithFormat:@"%d",[self.peopleList countOfPeople]]];
+}
+
+-(void)resetView{
+    [self.pickButton setEnabled:YES];
+    [self.pickButton setImage:green forState:UIControlStateNormal];
+    [self.numToPick setText:@"1"];
+    [self updateNumPeople];
+}
+
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
+    for (UIView* view in self.view.subviews) {
+        if ([view isKindOfClass:[UITextField class]])
+            [view resignFirstResponder];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        green = [[UIImage alloc] initWithContentsOfFile:
+                 [[NSBundle mainBundle] pathForResource:@"green.png" ofType:@""]]; 
+        red = [[UIImage alloc] initWithContentsOfFile:
+               [[NSBundle mainBundle] pathForResource:@"red.png" ofType:@""]];
     }
     return self;
 }

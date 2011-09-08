@@ -15,7 +15,12 @@
 @property (retain) IBOutlet UITextField *numToPick;
 @property (retain) IBOutlet UIButton *pickButton;
 @property (retain) IBOutlet UIButton *resetButton;
+@property (retain) IBOutlet UILabel *peopleLeft;
+@property (retain) IBOutlet UIImage *green;
+@property (retain) IBOutlet UIImage *red;
 
 -(IBAction)pickPeople:(id)sender;
+-(void)updateNumPeople;
+-(void)resetView;
 
 @end
