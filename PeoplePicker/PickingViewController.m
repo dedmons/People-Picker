@@ -27,7 +27,7 @@
             [self.pickButton setImage:red forState:UIControlStateNormal];
             emptyList = YES;
         } else {
-            result = [result stringByAppendingFormat:@"\n%@",nextResult];
+            result = [result stringByAppendingFormat:@"%@\n",nextResult];
         }
     }
     [self updateNumPeople];
