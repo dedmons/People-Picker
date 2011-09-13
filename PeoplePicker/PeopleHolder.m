@@ -16,6 +16,7 @@
     return [people count];
 }
 
+//Uses arc4random() to generate a random person from list
 -(NSString *)randomPerson{
     NSString *tmp;
     if ([people count] > 0) {
@@ -37,14 +38,16 @@
 {
     self = [super init];
     if (self) {
-        self.people = [[NSMutableArray alloc] initWithCapacity:cap];
+        NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:cap];
+        self.people = tmp;
+        [tmp release];
     }
     
     return self;
 }
 
 -(void)dealloc{
-    [self.people release];
+    self.people = nil;
     [super dealloc];
 }
 

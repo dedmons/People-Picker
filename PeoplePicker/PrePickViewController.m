@@ -13,10 +13,13 @@
 @synthesize peopleList,restartButton,makeListButton,addButton,
             startButton,numPeople,personToAdd,addLight,startLight,green,red;
 
-
+// Used to make the list of people and requires that the size is greater than 0.
+//   If the size is less than or equal to 0 an alert is shown. After creating the 
+//   list it modifies the apropiate outlets
 -(IBAction)makeList:(id)sender{
     NSNumberFormatter *tmp = [[NSNumberFormatter alloc] init];
     if([[self.numPeople text] intValue] == 0){
+        // Basic structure for creating a UIAlertView
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You Cant Do That"
                                                         message:@"You Must Set The Pool Size" 
                                                        delegate:nil
@@ -25,11 +28,16 @@
         [alert show];
         [alert release];
     } else {
-        [self.numPeople resignFirstResponder];
+        
+        [self.numPeople resignFirstResponder]; //Hide Keyboard
+        
         if (!peopleList) {
             int cap = [[self.numPeople text] intValue];
-            self.peopleList = [[PeopleHolder alloc] initWithCap:cap];
+            PeopleHolder *tmp = [[PeopleHolder alloc] initWithCap:cap];
+            self.peopleList = tmp;
+            [tmp release];
         }
+        
         [self.restartButton setEnabled:YES];
         [self.addButton setEnabled:YES];
         [self.personToAdd setEnabled:YES];
@@ -38,21 +46,25 @@
     [tmp release];
 }
 
+// Adds person to peopleList if name is not blank and peopleList is not full
 -(IBAction)addPerson:(id)sender{
     if ([[self.personToAdd text] length] > 0) {
         if ([self.peopleList countOfPeople] < [[self.numPeople text] intValue]) {
+            
             [self.startButton setEnabled:YES];
             [self.startLight setImage:green];
             [self.peopleList addPerson:[self.personToAdd text]];
             [self.personToAdd setText:@""];
+            
             NSLog(@"Size of Array: %d",[self.peopleList countOfPeople]);
             
             if([self.peopleList countOfPeople] == [[self.numPeople text] intValue]){
                 [self.personToAdd resignFirstResponder];
+                [self.addLight setImage:red];
             } 
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"To Many..." 
-                                                            message:@"You Have Reached The Ammount Of People You Specified." 
+        } else { //Alert if list is full
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Too Many..." 
+                                                            message:@"You Have Reached The Amount Of People You Specified." 
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK" 
                                                   otherButtonTitles:nil];
@@ -65,7 +77,7 @@
             [self.addLight setImage:red];
         }
         
-    } else {
+    } else { //Alert if name is blank
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What?" 
                                                         message:@"A Name Cannot Be Blank!" 
                                                        delegate:nil
@@ -76,14 +88,21 @@
     }
 }
 
--(IBAction)printPeople:(id)sender{
-    
+-(void)releaseOutlets{
+    peopleList = nil;
+    restartButton = nil;
+    makeListButton = nil;
+    addButton = nil;
+    startButton = nil;
+    numPeople = nil;
+    personToAdd = nil;
+    addLight = nil;
+    startLight = nil;
+    green = nil;
+    red = nil;
 }
 
--(IBAction)hideTroll:(id)sender{
-    
-}
-
+//Used to hide keyboard if you toutch outside of a UITextField
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
     for (UIView* view in self.view.subviews) {
         if ([view isKindOfClass:[UITextField class]])
@@ -91,15 +110,7 @@
     }
 }
 
-#pragma mark - UIAlertViewDeligate Methods
-/*
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        NSLog(@"%@",[alertView buttonTitleAtIndex:buttonIndex]);
-    }
-}
-*/
-
+//Used to hide keyboard when return key is hit
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [theTextField resignFirstResponder];
     return YES;
@@ -123,6 +134,7 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+    [self releaseOutlets];
 }
 
 #pragma mark - View lifecycle
@@ -131,7 +143,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    //Sets the numPeople TextField to first responder when view is loaded.
     [self.numPeople becomeFirstResponder];
+    
     [super viewDidLoad];
 }
 
@@ -141,6 +155,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [self releaseOutlets];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

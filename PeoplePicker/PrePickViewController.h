@@ -25,8 +25,5 @@
 
 -(IBAction)makeList:(id)sender;
 -(IBAction)addPerson:(id)sender;
--(IBAction)hideTroll:(id)sender;
-//-(IBAction)startPicking:(id)sender;
-//-(IBAction)restart:(id)sender;
 
 @end

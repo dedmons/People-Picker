@@ -16,7 +16,7 @@
 @property (retain) PrePickViewController *prePickViewController;
 @property (retain) PickingViewController *pickingViewController;
 @property (retain) InfoViewController *infoViewController;
-@property (retain) NSString *prevView; 
+@property (copy) NSString *prevView; 
 
 -(IBAction)startPicking:(id)sender;
 -(IBAction)reset:(id)sender;

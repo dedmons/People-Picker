@@ -12,15 +12,9 @@
 
 @synthesize prePickViewController,pickingViewController,infoViewController,prevView;
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
+// Creates the view for picking people.
 -(IBAction)startPicking:(id)sender{
+    
     if (!pickingViewController) {
         PickingViewController *pVC = [[PickingViewController alloc] initWithNibName:@"PickingView" 
                                                                              bundle:nil];
@@ -30,30 +24,32 @@
     
     self.pickingViewController.peopleList = self.prePickViewController.peopleList;
     
+    //Basic UIView Transition setup statements
     [UIView beginAnimations:@"View Flip" context:nil];
     [UIView setAnimationDuration:1.25];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationTransition:
      UIViewAnimationTransitionFlipFromRight
                            forView:self.view cache:YES];
-    
+    //Actions to be animated
     [self.prePickViewController.view removeFromSuperview];
     [self.view insertSubview:self.pickingViewController.view atIndex:0];
     
+    //Commit animations
     [UIView commitAnimations];
     
     [self.pickingViewController resetView];
 }
 
+// Used to reset list of people and views
 -(IBAction)reset:(id)sender{
+    PrePickViewController *pPVC = [[PrePickViewController alloc] 
+                                   initWithNibName:@"PrePickView" bundle:nil];
+    
     [UIView beginAnimations:@"View Flip" context:nil];
     [UIView setAnimationDuration:1.25];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    
-    PrePickViewController *pPVC = [[PrePickViewController alloc] 
-                                   initWithNibName:@"PrePickView" bundle:nil];
-    [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromRight
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
                            forView:self.view cache:YES];
     
     [[self.view.subviews objectAtIndex:0] removeFromSuperview];
@@ -64,12 +60,17 @@
     [UIView commitAnimations];
 }
 
+//Used to controll showing and hiding the info view and making sure you get back to 
+//  were you came from when hiding info.
 -(IBAction)info:(id)sender{
+    
     if (!self.infoViewController) {
         InfoViewController *iVC = [[InfoViewController alloc] initWithNibName:@"InfoView" bundle:nil];
         self.infoViewController = iVC;
         [iVC release];
     }
+    
+    //Uses tag as an identifyer for what button sent the message
     if ([sender tag] == 24) {
         [UIView beginAnimations:@"View Flip" context:nil];
         [UIView setAnimationDuration:1.25];
@@ -125,6 +126,14 @@
     }
 }
 
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
 #pragma mark - View lifecycle
 
 
@@ -146,12 +155,15 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.prePickViewController = nil;
+    self.pickingViewController = nil;
+    self.infoViewController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return interfaceOrientation == UIInterfaceOrientationPortrait;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait) 
+            || (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
 
 @end
