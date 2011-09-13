@@ -13,7 +13,8 @@
 		F7189F16141857AC008DEF6D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7189F15141857AB008DEF6D /* InfoViewController.m */; };
 		F74BFB5C14164AFD0060F436 /* PickingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74BFB5B14164AFD0060F436 /* PickingView.xib */; };
 		F74BFB6014164FD60060F436 /* PickingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74BFB5F14164FD60060F436 /* PickingViewController.m */; };
-		F777850E1417E90A00F74416 /* troll-face.png in Resources */ = {isa = PBXBuildFile; fileRef = F777850D1417E90A00F74416 /* troll-face.png */; };
+		F7C4F63B141F0BA900726D87 /* Chrome Apple RD Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C4F63A141F0BA900726D87 /* Chrome Apple RD Icon.png */; };
+		F7C4F63D141F0BB800726D87 /* Chrome Apple Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7C4F63C141F0BB800726D87 /* Chrome Apple Icon.png */; };
 		F7D87A3C14153E7800FC7DBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3B14153E7800FC7DBC /* UIKit.framework */; };
 		F7D87A3E14153E7800FC7DBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3D14153E7800FC7DBC /* Foundation.framework */; };
 		F7D87A4014153E7800FC7DBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D87A3F14153E7800FC7DBC /* CoreGraphics.framework */; };
@@ -37,7 +38,8 @@
 		F74BFB5B14164AFD0060F436 /* PickingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickingView.xib; sourceTree = "<group>"; };
 		F74BFB5E14164FD60060F436 /* PickingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickingViewController.h; sourceTree = "<group>"; };
 		F74BFB5F14164FD60060F436 /* PickingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickingViewController.m; sourceTree = "<group>"; };
-		F777850D1417E90A00F74416 /* troll-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "troll-face.png"; sourceTree = "<group>"; };
+		F7C4F63A141F0BA900726D87 /* Chrome Apple RD Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chrome Apple RD Icon.png"; path = "../Chrome Apple RD Icon.png"; sourceTree = "<group>"; };
+		F7C4F63C141F0BB800726D87 /* Chrome Apple Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Chrome Apple Icon.png"; path = "../Chrome Apple Icon.png"; sourceTree = "<group>"; };
 		F7D87A3714153E7800FC7DBC /* PeoplePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeoplePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7D87A3B14153E7800FC7DBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F7D87A3D14153E7800FC7DBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,9 +130,10 @@
 		F7D87A4214153E7800FC7DBC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F7C4F63C141F0BB800726D87 /* Chrome Apple Icon.png */,
+				F7C4F63A141F0BA900726D87 /* Chrome Apple RD Icon.png */,
 				F7189F0C1418431E008DEF6D /* green.png */,
 				F7189F0D1418431E008DEF6D /* red.png */,
-				F777850D1417E90A00F74416 /* troll-face.png */,
 				F7D87A4314153E7800FC7DBC /* PeoplePicker-Info.plist */,
 				F7D87A4414153E7800FC7DBC /* InfoPlist.strings */,
 				F7D87A4714153E7800FC7DBC /* main.m */,
@@ -194,10 +197,11 @@
 				F7D87A5514153E7800FC7DBC /* PeoplePickerViewController.xib in Resources */,
 				F7D87A8E1415448500FC7DBC /* PrePickView.xib in Resources */,
 				F74BFB5C14164AFD0060F436 /* PickingView.xib in Resources */,
-				F777850E1417E90A00F74416 /* troll-face.png in Resources */,
 				F7189F0A14184071008DEF6D /* InfoView.xib in Resources */,
 				F7189F0E1418431E008DEF6D /* green.png in Resources */,
 				F7189F0F1418431E008DEF6D /* red.png in Resources */,
+				F7C4F63B141F0BA900726D87 /* Chrome Apple RD Icon.png in Resources */,
+				F7C4F63D141F0BB800726D87 /* Chrome Apple Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
